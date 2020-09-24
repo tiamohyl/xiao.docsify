@@ -8,6 +8,9 @@
   <meta name="description" content="Description">
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css"> -->
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
@@ -15,7 +18,7 @@
 </head>
 
 <body>
-  <div id="app">Please wait...</div>
+  <div id="app">Please wait{{msg}}...</div>
   <script>
     window.$docsify = {
       name: 'Learning-Record',
@@ -29,14 +32,59 @@
       subMaxLevel: 2,
       search: 'auto',
       auto2top: true,
+      search: {
+        paths: 'auto',
+        placeholder: 'Type to search ',
+        noData: '😞 No Results! ', // Headline depth, 1 - 6 
+        depth: 6
+      },//增加搜索框
+      pagination: {
+        previousText: '上一篇',
+        nextText: '下一篇',
+        crossChapter: true,
+        crossChapterText: true,
+      },
     }
   </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <!-- vue插件 -->
+  <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+  <!-- emoji插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js" data-ga="UA-XXXXX-Y"></script>
+  <!-- 外链脚本插件 允许在.md文件中引用script -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script> -->
+  <!-- 搜索插件 -->
   <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
+  <!-- 图片缩放插件 -->
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+  <!-- 代码复制插件 -->
   <script src="//unpkg.com/docsify-copy-code"></script>
+  <!-- 链接下一篇文章插件 -->
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+
+  <!-- gitalk评论插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'c78d023107bd685ed788',
+      clientSecret: 'c5a43cbe7648a0b96a14df46c1a8a3d724467368',
+      repo: 'comment_res',
+      owner: 'tiamohyl',
+      admin: ['tiamohyl'],
+      // facebook-like distraction free mode
+      // distractionFreeMode: false
+      id: window.location.pathname,
+    })
+    window.onhashchange = function (event) {
+      if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+        location.reload()
+      }
+    }
+  </script>
 </body>
 
 </html>

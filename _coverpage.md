@@ -1,4 +1,4 @@
-![logo](_media/icon.svg)
+<!-- ![logo]() -->
 # docsify <small>4.3</small>
 > A magical documentation site generator. 
 

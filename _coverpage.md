@@ -6,6 +6,7 @@
 - No statically built html files 
 - Multiple themes
 
+<!-- [GitHub](https://github.com/docsifyjs/docsify/) -->
 [GitHub](https://github.com/docsifyjs/docsify/)
 [Get Started](#headline)
 <!-- [Get Started](#docsify) -->

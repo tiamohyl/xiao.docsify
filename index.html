@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
 
+
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css"> -->
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
@@ -18,11 +19,12 @@
 </head>
 
 <body>
-  <div id="app">Please wait{{msg}}...</div>
+  <div data-app id="main">加载中。。。。</div>
   <script>
     window.$docsify = {
+      el: '#main',
       name: 'Learning-Record',
-      repo: 'https://github.com/Hanxueqing/Douban-Movie.git',
+      repo: 'tiamohyl',
       logo: '/_media/icon.svg',
       mergeNavbar: true,
       loadNavbar: true,
@@ -43,6 +45,33 @@
         nextText: '下一篇',
         crossChapter: true,
         crossChapterText: true,
+      },
+      count: {
+        countable: true,
+        position: 'top',
+        margin: '10px',
+        float: 'right',
+        fontsize: '0.9em',
+        color: 'rgb(90,90,90)',
+        language: 'chinese',
+        localization: {
+          words: "",
+          minute: ""
+        },
+        isExpected: true
+      },
+      plantuml: {
+        skin: 'classic',
+      },
+      // 'flexible-alerts': {
+      //   style: 'flat'
+      // },
+      footer: {
+        copy: '<span>Acme &copy; 2020</span>',
+        auth: 'by Me',
+        pre: '<hr/>',
+        style: 'text-align: right;',
+        class: 'className',
       },
     }
   </script>
@@ -68,6 +97,11 @@
   <!-- gitalk评论插件 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/docsify-count@latest/dist/countable.min.js"></script>
+  <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
+  <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+
   <script>
     var gitalk = new Gitalk({
       clientID: 'c78d023107bd685ed788',
@@ -76,7 +110,7 @@
       owner: 'tiamohyl',
       admin: ['tiamohyl'],
       // facebook-like distraction free mode
-      // distractionFreeMode: false
+      distractionFreeMode: true,
       id: window.location.pathname,
     })
     window.onhashchange = function (event) {
@@ -85,6 +119,9 @@
       }
     }
   </script>
+
+  <script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
+
 </body>
 
 </html>

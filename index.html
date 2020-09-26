@@ -106,16 +106,16 @@
   <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
 
   <script>
-    var gitalk = new Gitalk({
-      clientID: 'c78d023107bd685ed788',
-      clientSecret: 'c5a43cbe7648a0b96a14df46c1a8a3d724467368',
-      repo: 'comment_res',
-      owner: 'tiamohyl',
-      admin: ['tiamohyl'],
-      // facebook-like distraction free mode
-      distractionFreeMode: true,
-      id: window.location.pathname,
-    })
+    // var gitalk = new Gitalk({
+    //   clientID: 'c78d023107bd685ed788',
+    //   clientSecret: 'c5a43cbe7648a0b96a14df46c1a8a3d724467368',
+    //   repo: 'comment_res',
+    //   owner: 'tiamohyl',
+    //   admin: ['tiamohyl'],
+    //   // facebook-like distraction free mode
+    //   distractionFreeMode: true,
+    //   id: window.location.pathname,
+    // })
     window.onhashchange = function (event) {
       if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
         location.reload()
